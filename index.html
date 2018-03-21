@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>部门选择器</title>
+
+    <!-- 需要引用的CSS -->
+	<link rel="stylesheet" type="text/css" href="css/wingconn.css" />
+	<link rel="stylesheet" type="text/css" href="icon_font/css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery-selectBox.css" />
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<style>
+		.search-item{
+			display: inline-block;
+			margin-left: 33px;
+		}
+		.search-department{
+			padding-right: 30px;
+		}
+		.icon-add-department{
+			font-size: 22px;
+			position: absolute;
+			margin-left: -30px;
+			margin-top: 7px;
+		}
+	</style>
+  </head>
+  <body>
+	<div class="search-item">
+		<label>收文部门</label><input type="text" class="input-normal select-box" id="searchReceiveDepartment" placeholder="请输入内容" value="" readonly="readonly"/><i class="iconfont icon-user-add icon-single-add"></i>
+	</div>
+	
+	
+	<div class="page-content-item-single">
+        <div class="page-content-item-name">收文部门</div>
+        <input type="text" class="input-normal select-box" id="receiveDept" placeholder="请输入内容" value="" readonly="readonly"/><i class="iconfont icon-user-add icon-double-add"></i>
+    </div>
+			
+    <!-- 需要引用的JS -->
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-selectBox.js"></script>
+    <script type="text/javascript">
+        $(function(){
+		   var data = [{"index":0,"departmentName":"市交通局"},
+				{"index":1,"departmentName":"公安局"},
+				{"index":2,"departmentName":"粮食局"},
+				{"index":3,"departmentName":"旅游局"},
+				{"index":4,"departmentName":"纪要局"},
+				{"index":5,"departmentName":"宣传部"},
+				{"index":6,"departmentName":"企业管理局"},
+				{"index":7,"departmentName":"园区公积金"},
+				{"index":8,"departmentName":"园区管理"},
+				{"index":9,"departmentName":"管委会"},
+				{"index":10,"departmentName":"市监察局"},
+		   ];
+		   var departmentData = [
+				{"departmentName":"市交通局"},
+				{"departmentName":"公安局"},
+				{"departmentName":"粮食局"},
+				{"departmentName":"旅游局"},
+				{"departmentName":"纪要局"},
+				{"departmentName":"宣传部"},
+				{"departmentName":"企业管理局"},
+				{"departmentName":"园区公积金"},
+				{"departmentName":"园区管理"},
+				{"departmentName":"管委会"},
+				{"departmentName":"市监察局"},
+			];
+
+			var groupData = [
+				{"groupName":"吴中区",
+					"groupData":[{"departmentName":"市交通局"},
+						{"departmentName":"公安局"},
+						{"departmentName":"粮食局"},
+						{"departmentName":"旅游局"},
+						{"departmentName":"纪要局"}]
+				},
+				{"groupName":"工业园区",
+					"groupData":[{"departmentName":"宣传部"},
+						{"departmentName":"企业管理局"},
+						{"departmentName":"园区公积金"},
+						{"departmentName":"园区管理"},
+						{"departmentName":"管委会"},
+						{"departmentName":"市监察局"}]
+				}
+			];
+
+			var data2 = {"departmentData":departmentData,"groupData":groupData};
+		   //初始化
+		   selectBoxSingle("searchReceiveDepartment",data);
+		   
+		    selectBoxdouble("receiveDept",data2);
+        })
+      </script>
+  </body>
+</html>
